@@ -27,7 +27,8 @@ class Program
     static int PromptUserNumber()
     {
         Console.WriteLine("Please enter your favorite number: ");
-        int number = Convert.ToInt32(Console.ReadLine());
+        string input = Console.ReadLine();
+        int number = int.Parse(input);
         return number;
     }
 
@@ -39,6 +40,6 @@ class Program
 
     static void DisplayResult(string name, int favoriteNumber, int squaredNumber)
     {
-        Console.WriteLine($"Hello, {name}! your square is {squaredNumber}.");
+        Console.WriteLine($"Hello, {name}! your square number is {squaredNumber}.");
     }
 }
