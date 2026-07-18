@@ -65,7 +65,7 @@ class Program
                 Console.WriteLine("Bye!");
             }
             else{
-                Console.WriteLine("Invalid option");
+                Console.WriteLine("Invalid option!! please type a valid numbre");
             }
         }
     }
