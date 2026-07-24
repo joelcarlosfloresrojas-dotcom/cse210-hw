@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-"""
-i added and option to give the user the oportunity to choose which scripture he wants to memorize, like a little menu
-"""
+/*i added an option to let the user decide what scripture he wants to memorize , like a little menu */
 
 class Program
 {
