@@ -1,32 +1,67 @@
+using System;
+using System.Collections.Generic;
+
 public class Scripture
-{        
-    private List<int> _numerito = new List<int>();
-    private List<string> _theword = new List<string>();
-    private string _learn;
+{
+    private Reference _reference;
+    private List<Word> _words;
 
-    public Scripture(List<string> little, List<int> numero)
+    public Scripture(Reference ref1, string text_list)
     {
-        _numerito = numero;
-        _theword = little;
-    }
+        _reference = ref1;
+        _words = new List<Word>();
 
-    public List<string> Getgivemeundercores()
-    {
-        for(int i = 0; i < _numerito.Count; i++)
-        {   
-            int go = _numerito[i];
-            
-        
-            int wordLength = _theword[go].Length;
-            _theword[go] = new string('_', wordLength);
+        string[] _hello = text_list.Split(' '); 
+        for (int go = 0; go < _hello.Length; go++) 
+        {
+            Word word1 = new Word(_hello[go]); 
+            _words.Add(word1);
         }
-        return _theword;
     }
 
-    public void DisplayText(List<string> ole, string ref1)
+    public void HideRandomWords(int nhide) 
     {
-        _learn = string.Join(" ", ole);
-        Console.WriteLine(ref1);
-        Console.WriteLine(_learn);
+        Random random = new Random();
+        int rnumber = 0; 
+        int enumber = 0; 
+
+        while (rnumber < nhide && enumber < 50)
+        {
+            int go = random.Next(_words.Count); 
+            
+            if (_words[go].IsHidden() == false)
+            {
+                _words[go].Hide();
+                rnumber++;
+            }
+            enumber++;
+        }
+    }
+
+    public string GetDisplayText()
+    {
+        string _learn = _reference.GetDisplayText() + " "; 
+        
+        for (int go = 0; go < _words.Count; go++)
+        {
+            _learn += _words[go].GetDisplayText() + " ";
+        }
+        
+        return _learn;
+    }
+
+    public bool IsCompletelyHidden()
+    {
+        bool allHidden = true;
+
+        foreach (Word word1 in _words) 
+        {
+            if (word1.IsHidden() == false)
+            {
+                allHidden = false;
+            }
+        }
+        
+        return allHidden;
     }
 }

@@ -1,46 +1,39 @@
+using System;
 
 public class Reference
 {
     private string _book;
-    private string _chapter;
-    private string _star;
-    private string _end;
+    private int _chapter;
+    private int _verse;
+    private int _endVerse;
 
-    public Reference(string b,string c, string s,string e)
+    public Reference(string b, int c, int s) 
     {
         _book = b;
-        _chapter= c;
-        _star=s;
-        _end=e;
+        _chapter = c;
+        _verse = s;
+        _endVerse = 0;
     }
-     public Reference(string b,string c, string s)
+
+    public Reference(string b, int c, int s, int e) 
     {
         _book = b;
-        _chapter= c;
-        _star=s;
-        _end="";
+        _chapter = c;
+        _verse = s;
+        _endVerse = e;
     }
-    public string GetDisplayReference()
-    {
-        string op1;
 
-        if (string.IsNullOrEmpty(_end))
+    public string GetDisplayText()
+    {
+        string op1; 
+        if (_endVerse == 0)
         {
-            op1=$"{_book} {_chapter}:{_star}";   
+            op1 = _book + " " + _chapter + ":" + _verse;
         }
-        else{
-            int enumber = int.Parse(_end);
-            if (enumber == 0 )
-            {
-                op1=$"{_book} {_chapter}:{_star}";
-            }
-            else
-            {
-                op1=$"{_book} {_chapter}:{_star}-{_end}";
-            }
+        else
+        {
+            op1 = _book + " " + _chapter + ":" + _verse + "-" + _endVerse;
         }
         return op1;
     }
-    
-    
 }
