@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+/* i added like menu where the user can choose what scripture he wants to memorize with 5 options*/
 public class Scripture
 {
     private Reference _reference;
