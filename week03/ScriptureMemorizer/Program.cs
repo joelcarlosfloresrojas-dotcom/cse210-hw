@@ -1,3 +1,8 @@
+/* i added like a menu where the user can 
+choose what scripture he wants to memorize with 5 options
+i put the scriptures in  a list*/
+
+
 using System;
 using System.Collections.Generic;
 
