@@ -27,7 +27,9 @@ public class ReflectingActivity : Activity
         Random randomer = new Random();
         int a = randomer.Next(0,_prompts.Count);
         Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine("");
         Console.WriteLine($"---{_prompts[a]}---");
+         Console.WriteLine("");
         Console.WriteLine("When you have something in mind press enter to continue");
     }
      public void GetRandomQuestion()
