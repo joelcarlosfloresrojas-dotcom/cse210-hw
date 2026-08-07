@@ -1,11 +1,23 @@
+// EXCEEDING REQUIREMENTS:
+// I added a feature to keep a log of how many times each activity was performed during the session.
+// and also displays them at the end of the activity to make the user know how many times he performed
+// each on of them.
+
 using System;
+using System.Collections.Generic;
+using System.Threading;
 
 class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the Mindfulness Project.");
-          string choice = "";
+        
+        string choice = "";
+        
+        int breathingLog = 0;
+        int reflectingLog = 0;
+        int listingLog = 0;
 
         while (choice != "4")
         {
@@ -26,10 +38,11 @@ class Program
                 
                 BreathingActivity breathingActivity = new BreathingActivity(name, 0, description);
                 breathingActivity.Run();
+                
+                breathingLog++;
             }
             else if (choice == "2")
             {
-            
                 string name = "Reflection Activity";
                 string description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
                 
@@ -56,10 +69,11 @@ class Program
 
                 ReflectingActivity reflectingActivity = new ReflectingActivity(name, 0, description, reflectionQuestions, reflectionPrompts);
                 reflectingActivity.Run();
+                
+                reflectingLog++;
             }
             else if (choice == "3")
             {
-               
                 string name = "Listing Activity";
                 string description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
                 
@@ -74,10 +88,19 @@ class Program
 
                 ListingActivity listingActivity = new ListingActivity(name, 0, description, listingPrompts);
                 listingActivity.Run();
+                
+                listingLog++;
             }
             else if (choice == "4")
             {
+                Console.WriteLine("");
+                Console.WriteLine("Great job today! Here is your session summary:");
+                Console.WriteLine($" - Breathing Activity: {breathingLog} times");
+                Console.WriteLine($" - Reflection Activity: {reflectingLog} times");
+                Console.WriteLine($" - Listing Activity: {listingLog} times");
+                Console.WriteLine("");
                 Console.WriteLine("Goodbye!");
+                Thread.Sleep(4000);
             }
             else
             {
@@ -86,6 +109,4 @@ class Program
             }
         }
     }
-
-    
 }

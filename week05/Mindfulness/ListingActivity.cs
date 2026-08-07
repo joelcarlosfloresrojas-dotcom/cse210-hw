@@ -34,7 +34,7 @@ public class ListingActivity : Activity
         DateTime extra1=time1.AddSeconds(GetDuration());
         List<string> helper= new List<string>();
         while(DateTime.Now<extra1){
-        Console.WriteLine("-");
+        Console.Write("-");
         string response =Console.ReadLine();
             helper.Add(response);
         }
