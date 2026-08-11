@@ -1,4 +1,0 @@
-581
-Simple Goal:dsa,asd,34,True
-Eternal Goal:sad,asd,34
-Check List Goal:ads,sad,45,344,3,3
