@@ -24,11 +24,13 @@ public class ChecklistGoal:Goal
         _amountCompleted++;
         if (_target != _amountCompleted)
         {
+            Console.WriteLine($"Congratulations! You have earned {GetPoints()} points");
             return GetPoints();
 
         }
         else
         {
+            Console.WriteLine($"Congratulations! You have earned { _bonus+GetPoints()} points");
             return _bonus+GetPoints();    
         }
         

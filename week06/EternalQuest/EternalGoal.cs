@@ -9,6 +9,7 @@ public class EternalGoal:Goal
 
     public override int RecordEvent()
     {
+        Console.WriteLine($"Congratulations! You have earned {GetPoints()} points");
         return GetPoints();
     }
 
